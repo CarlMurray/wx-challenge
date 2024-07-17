@@ -67,7 +67,8 @@ def summarise():
     summary = jsondata["results"][0]["generated_text"]
     # summary = json.dumps(jsondata["results"][0]["generated_text"])
     print(summary)
-    return f'<p>{summary}</p>'
+    dict = {"summary": summary}
+    return json.dumps(dict)
 
 def get_iam_token():
     url = 'https://iam.cloud.ibm.com/identity/token'
