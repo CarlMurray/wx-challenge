@@ -64,8 +64,10 @@ def summarise():
     r = requests.post(url=API_URL_ENDPOINT, json=data, headers=headers)
     print(r)
     jsondata = r.json()
-    print(jsondata)
-    return jsondata["results"][0]["generated_text"]
+    summary = jsondata["results"][0]["generated_text"]
+    # summary = json.dumps(jsondata["results"][0]["generated_text"])
+    print(summary)
+    return f'<p>{summary}</p>'
 
 def get_iam_token():
     url = 'https://iam.cloud.ibm.com/identity/token'
