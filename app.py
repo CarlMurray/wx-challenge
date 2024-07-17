@@ -77,6 +77,15 @@ def get_user_context():
       "completionDate": "2023-11-20"
     }
   ],
+  "holidayStatus": {
+    "onHoliday": "true",
+    "holidayDates":  [
+      {
+        "startDate": "2024-07-15",
+        "endDate": "2024-07-27"
+      }
+    ]
+  },
 
   "risk_event": {
     "risk_id": 24,
@@ -98,8 +107,8 @@ def get_user_context():
         "count": 3
       }
     ],
-    "from_date": "2024-07-09T09:00:00Z",
-    "to_date": "2024-07-09T19:00:00Z",
+    "from_date": "2024-07-18T09:00:00Z",
+    "to_date": "2024-07-18T19:00:00Z",
     "status": "OPENED",
     "description": "In the last day, there were 255 violations of the \"SQL Injection: Tautology\" policy rule.\n",
     "category_description": "SQL injection attacks attempt to use application vulnerabilities by concatenating user input with SQL queries. If successful, these attacks can run malicious SQL commands by using the legitimate application connection. There are various SQL injection techniques. Explore policy violations and exceptions to understand which techniques, suggesting an SQL injection, were identified.",
@@ -109,21 +118,21 @@ def get_user_context():
     {
       "observation_id": 1,
       "lead_feature_id": 26,
-      "time": "2024-07-09T09:00:00Z",
+      "time": "2024-07-18T09:00:00Z",
       "observation_description": "86 violations with severity 10 or higher",
       "observation_type": "VIOLATION"
     },
     {
       "observation_id": 2,
       "lead_feature_id": 46,
-      "time": "2024-07-09T11:00:00Z",
+      "time": "2024-07-18T11:00:00Z",
       "observation_description": "86 violations with severity 10 or higher",
       "observation_type": "VIOLATION"
     },
     {
       "observation_id": 3,
       "lead_feature_id": 77,
-      "time": "2024-07-09T18:00:00Z",
+      "time": "2024-07-18T18:00:00Z",
       "observation_description": "86 violations with severity 10 or higher",
       "observation_type": "VIOLATION"
     }
