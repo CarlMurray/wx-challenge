@@ -35,8 +35,8 @@
             "description": "Success to retrieve the data"
           }
         },
-        "description": "Retrieve JSON data for a single employee",
-        "summary": "Retrieve single employee NEW"
+        "description": "USE THIS ONE",
+        "summary": "NEWEST Get Risk Event and User Summary"
       }
     }
   },
