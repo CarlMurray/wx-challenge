@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 import requests
 import json
@@ -42,6 +42,10 @@ REPETITION_PENALTY = 1
 API_KEY='BGthpi04Zy0luvLxtPhGvYqspGYSpU1Ae_sjOXF2MShX'
 API_URL_ENDPOINT = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2024-06-01"
 INSTRUCTION = """You are a security AI assistant. You will take the JSON data about an employee and generate a human readable summary of the data."""
+
+@app.route("/")
+def index():
+    return render_template("risk-event.html")
 
 @app.route("/workday/api/get_user_context")
 def summarise():

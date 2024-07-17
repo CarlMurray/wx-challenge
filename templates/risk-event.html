@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: "ec535396-836e-481f-8975-029dec1b0cf7", // The ID of this integration.
+        region: "aws-us-east-1", // The region your integration is hosted in.
+        serviceInstanceID: "20240703-1453-4959-30db-929084286eba", // The ID of your service instance.
+        onLoad: async (instance) => {
+          await instance.render();
+        },
+      };
+      setTimeout(function () {
+        const t = document.createElement("script");
+        t.src =
+          "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+          (window.watsonAssistantChatOptions.clientVersion || "latest") +
+          "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+      });
+    </script>
+  </head>
+  <body>
+    <img src="static/imgs/risk-event.png" alt="Risk Event" />
+  </body>
+</html>
