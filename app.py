@@ -65,7 +65,7 @@ def summarise():
     print(r)
     jsondata = r.json()
     print(jsondata)
-    return markdown.markdown(jsondata["results"][0]["generated_text"])
+    return jsondata["results"][0]["generated_text"]
 
 def get_iam_token():
     url = 'https://iam.cloud.ibm.com/identity/token'
