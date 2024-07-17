@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
     "title": "Sample employee",
     "description": "List the name, email, and job name of sample employees",
@@ -20,48 +20,38 @@
       "bearerAuth": []
     }
   ],
+  "securitySchemes": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
   "paths": {
     "/workday/api/get_user_context": {
       "get": {
-        "summary": "Retrieve single employee",
-        "description": "Retrieve JSON data for a single employee",
         "responses": {
           "200": {
-            "description": "Success to retrieve the data",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/employee"
                 }
               }
-            }
+            },
+            "description": "Success to retrieve the data"
           }
-        }
+        },
+        "description": "Retrieve JSON data for a single employee",
+        "summary": "Retrieve single employee"
       }
     }
   },
   "components": {
     "schemas": {
       "employee": {
-        "type": "object",
-        "properties": {
-          "fname": {
-            "type": "string",
-            "example": "John"
-          },
-          "lname": {
-            "type": "string",
-            "example": "Doe"
-          }
-        }
+        "type": "object"
       }
-    }
-  },
-  "securitySchemes": {
-    "bearerAuth": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "Authorization"
     }
   }
 }
