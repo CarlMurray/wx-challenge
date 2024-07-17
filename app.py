@@ -69,11 +69,9 @@ def summarise():
     r = requests.post(url=API_URL_ENDPOINT, json=data, headers=headers)
     jsondata = r.json()
     summary = jsondata["results"][0]["generated_text"]
-    # summary = json.dumps(jsondata["results"][0]["generated_text"])
-    # print(summary)
     email = user_context_data["manager"]["email"]
     print(email)
-    dict = {"summary": summary, "email": email}
+    dict = {"summary": summary, "email": email, "subject": "Security Event Summary from watsonx"}
     return json.dumps(dict)
 
 def get_iam_token():
