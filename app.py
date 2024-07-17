@@ -50,13 +50,14 @@ def index():
 @app.route("/workday/api/get_user_context")
 def summarise():
     token = get_iam_token()
-    jsondata = json.dumps(get_user_context())
+    user_context_data = get_user_context()
+    user_context_data_string = json.dumps(user_context_data)
     headers = {"Authorization": f'Bearer {token}', 
                        "content-type":"application/json"}
     data = {
 	  "model_id": MIXTRAL_INSTRUCT,
     #   "input": (INSTRUCTION+ "<|start_header_id|>user<|end_header_id|>"+jsondata["input"]+"<|eot_id|><|start_header_id|>assistant<|end_header_id|>"),
-      "input": (INSTRUCTION+jsondata),
+      "input": (INSTRUCTION+user_context_data_string),
       "project_id": "fc373787-aaaa-4622-93df-65e71b0a579f",
       	"parameters": {
 		"decoding_method": "greedy",
@@ -66,12 +67,13 @@ def summarise():
 	    },
     }
     r = requests.post(url=API_URL_ENDPOINT, json=data, headers=headers)
-    print(r)
     jsondata = r.json()
     summary = jsondata["results"][0]["generated_text"]
     # summary = json.dumps(jsondata["results"][0]["generated_text"])
-    print(summary)
-    dict = {"summary": summary}
+    # print(summary)
+    email = user_context_data["manager"]["email"]
+    print(email)
+    dict = {"summary": summary, "email": email}
     return json.dumps(dict)
 
 def get_iam_token():

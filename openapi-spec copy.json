@@ -28,7 +28,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/employee"
+                  "$ref": "#/components/schemas/data"
                 }
               }
             },
@@ -49,10 +49,13 @@
       }
     },
     "schemas": {
-      "employee": {
-        "type": "string",
+      "data": {
+        "type": "object",
         "properties": {
           "summary": {
+            "type": "string"
+          },
+          "managerEmail": {
             "type": "string"
           }
         }
