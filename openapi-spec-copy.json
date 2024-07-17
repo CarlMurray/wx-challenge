@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Get Risk Event & User Summary",
+    "title": "Get Risk Event and User Summary",
     "description": "List the name, email, and job name of sample employees",
     "version": "1.0",
     "x-ibm-application-name": "watsonx Challenge",
