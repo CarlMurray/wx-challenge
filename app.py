@@ -46,7 +46,7 @@ INSTRUCTION = """You are a security AI assistant. You will take the JSON data ab
 @app.route("/workday/api/get_user_context")
 def summarise():
     token = get_iam_token()
-    jsondata = get_user_context()
+    jsondata = json.dumps(get_user_context())
     headers = {"Authorization": f'Bearer {token}', 
                        "content-type":"application/json"}
     data = {
