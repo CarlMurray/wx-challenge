@@ -20,13 +20,6 @@
       "bearerAuth": []
     }
   ],
-  "securitySchemes": {
-    "bearerAuth": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "Authorization"
-    }
-  },
   "paths": {
     "/workday/api/get_user_context": {
       "get": {
@@ -48,9 +41,70 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
     "schemas": {
       "employee": {
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "john.doe@ibm.com"
+          },
+          "employeeId": {
+            "type": "string",
+            "example": "192844"
+          },
+          "fname": {
+            "type": "string",
+            "example": "John"
+          },
+          "holidayEndDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-06-27"
+          },
+          "holidayStartDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-06-20"
+          },
+          "isOnHoliday": {
+            "type": "boolean",
+            "example": true
+          },
+          "lname": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "manager": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "example": "thomas.watson@ibm.com"
+              },
+              "fname": {
+                "type": "string",
+                "example": "Thomas"
+              },
+              "lname": {
+                "type": "string",
+                "example": "Watson"
+              }
+            }
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-02-01"
+          }
+        }
       }
     }
   }
