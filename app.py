@@ -40,12 +40,12 @@ def get_user_context():
   "employment": {
     "employeeId": "emp_54321",
     "employmentType": "Full-time",
-    "hireDate": "2020-05-01",
+    "hireDate": "2024-05-01",
     "endDate": "null"
   },
   "accessDetails": {
     "roles": ["Data Analyst", "Sensitive Data Access"],
-    "lastLogin": "2024-07-15T08:00:00Z",
+    "lastLogin": "2024-07-18T08:00:00Z",
     "failedLoginAttempts": 2,
     "activeSessions": 1
   },
@@ -158,6 +158,10 @@ API_URL_ENDPOINT = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?vers
 INSTRUCTION = """<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
 Write a summary of the provided JSON data, which includes information about a risk event and the associated user from Workday. The summary should be easy to read and use bullet points to highlight key points. Based on the data and context from Workday, suggest possible explanations for the risk event. Make sure you are clear on what part of the data led you to those explanations and why you think those explanations are possible. 
+
+As you analyse the data you should pay attention to detail and consider the context of the user's role, experience, and other relevant information.
+
+Ensure to carefully check dates and times for any inconsistencies or patterns that may be relevant to the risk event or user's behaviour.
 
 Your output should include a high level overview of the most important data points but make sure to include important contextual information which would help a security analyst assess a threat, such as the employees experience, start date or holiday status. 
 
