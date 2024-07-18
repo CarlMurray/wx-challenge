@@ -4,9 +4,12 @@ import requests
 import json
 import markdown
 from flask import request
+import os
 
 app = Flask(__name__)
 CORS(app)
+
+API_KEY = os.environ.get("API_KEY")
 
 def get_user_context():
     print("app is running")
