@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = os.environ.get("API_KEY")
+API_KEY = 'z-GpPa-RYcdeuW3vCir7P9608eATlTESgIu4lpBPTOyw'
 
 def get_user_context():
     print("app is running")
