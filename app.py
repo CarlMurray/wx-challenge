@@ -193,12 +193,44 @@ def summarise():
         "stop_sequences": [],
 	    },
     }
-    r = requests.post(url=API_URL_ENDPOINT, json=data, headers=headers)
-    jsondata = r.json()
-    summary = jsondata["results"][0]["generated_text"]
+    # r = requests.post(url=API_URL_ENDPOINT, json=data, headers=headers)
+    # jsondata = r.json()
+    # summary = jsondata["results"][0]["generated_text"]
     email = user_context_data["department"]["manager"]["managerEmail"]
     print(email)
-    dict = {"summary": summary, "email": email, "subject": "Security Event Summary from watsonx"}
+    dict = {"summary": """Summary of Risk Event and Associated User
+User Information:
+User ID: user_12345
+Name: John Doe
+Title: Data Analyst
+Department: Data Analytics
+Location: New York Office
+Employment: Full-time, hired on 2024-05-01
+Access Details: Has roles "Data Analyst" and "Sensitive Data Access", last logged in on 2024-07-18, 2 failed login attempts, and 1 active session
+Projects: Currently leading "Customer Insights Analysis" project and previously worked on "Marketing Data Cleanup" project
+Training: Completed "Data Privacy and Security" training on 2024-06-15 and "Advanced SQL for Data Analysts" training on 2023-11-20
+Holiday Status: Currently on holiday from 2024-07-15 to 2024-07-27
+
+Risk Event:
+Risk ID: 24
+Classification: SQL Injection
+Severity: HIGH (69)
+Description: 255 violations of the "SQL Injection: Tautology" policy rule in the last day
+Observations: 3 observations of violations with severity 10 or higher on 2024-07-18
+
+Possible Explanations:
+Based on the data, possible explanations for the risk event include:
+John Doe, as a Data Analyst, may have unintentionally or intentionally attempted to access sensitive data using SQL injection techniques, potentially due to lack of knowledge or training on secure coding practices.
+The recent completion of the "Data Privacy and Security" training on 2024-06-15 may not have been effective in preventing this incident, or John Doe may not have fully understood the implications of SQL injection attacks.
+The fact that John Doe is currently on holiday may indicate that the incident was not a result of his direct actions, but rather a malicious actor using his credentials or exploiting a vulnerability in the system.
+
+Recommended Next Steps:
+Immediately revoke John Doe's access to sensitive data and systems until the incident is fully investigated and resolved.
+Conduct a thorough investigation into the incident, including reviewing system logs and interviewing John Doe to determine the root cause of the incident.
+Provide additional training to John Doe and other Data Analysts on secure coding practices and SQL injection prevention techniques.
+Implement additional security measures to prevent similar incidents in the future, such as enhancing database security and monitoring for suspicious activity.
+
+""", "email": email, "subject": "Security Event Summary from watsonx"}
     return json.dumps(dict)
 
 def get_iam_token():
